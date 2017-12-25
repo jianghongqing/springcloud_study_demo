@@ -1,0 +1,7 @@
+location /springcloud-app-html {
+			root   D:/app/workspace/springcloud-app;
+			index login.html;
+		}
+		location /springcloud-app/ {
+			proxy_pass http://127.0.0.1:1101;
+		}
