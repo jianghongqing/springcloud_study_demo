@@ -21,6 +21,7 @@
 - MVC springmvc 
 - ORM mybatis 
 - 会话 shiro 
+- 验证 hibernate-validation
 - 缓存 redis 
 - mybatis二级缓存集群 mybatis-redis
 - shiro会话集群，缓存集群 shiro-redis
