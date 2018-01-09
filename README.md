@@ -4,6 +4,12 @@
 
 - springcloud-app 是J2EE集群分布式基础开发平台，架构设计包括（分布式，分布式事务，高可用集群，缓存集群，会话集群，动静分离），技术栈包括（springCloud、MyBatis、Shiro、redis、easyui），业务模块包括：用户管理，角色管理、权限管理，字典管理。
 
+## 核心流程概要
+
+- 用户->nginx->HTML->ZUUL(路由中心)->eureka(注册中心)->具体服务（必须引入SHIRO权限）->eureka(注册中心)->核心服务（SHIRO权限认证授权）->REDIS/MYSQL
+- 外部通信,方式HTTP,协议HTTP,权限SHIRO,注意ZUUL过滤器屏蔽内部接口（防止内部接口对外暴露）
+- 内部通信,方式Feign,协议HTTP,权限eureka账号密码,注意SHIRO要开放内部接口
+
 ## 业务功能
 
 - 1.用户管理：用户是系统操作者，该功能主要完成系统用户配置。
