@@ -14,5 +14,7 @@
 		<module>springcloud-app-config</module>
 		<module>springcloud-app-zuul</module>
 		<module>springcloud-app-api</module>
+		<module>springcloud-app-test</module>
+		
 	</modules>
 </project>
