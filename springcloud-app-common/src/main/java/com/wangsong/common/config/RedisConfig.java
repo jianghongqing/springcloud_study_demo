@@ -11,7 +11,6 @@ import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import com.wangsong.common.mybatis.RedisCache;
-import com.wangsong.common.mybatis.RedisCacheTransfer;
 
 @Configuration
 public class RedisConfig {
