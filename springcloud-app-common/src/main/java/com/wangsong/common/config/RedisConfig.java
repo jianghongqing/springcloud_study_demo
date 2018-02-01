@@ -10,6 +10,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import com.wangsong.common.mybatis.RedisCache;
 import com.wangsong.common.mybatis.RedisCacheTransfer;
 
 @Configuration
@@ -26,15 +27,13 @@ public class RedisConfig {
         template.setConnectionFactory(redisConnectionFactory);
         template.setKeySerializer(new StringRedisSerializer());
         template.setValueSerializer(new JdkSerializationRedisSerializer());
+        redisCacheTransfer(template);
         return template;
     }
    
-    @Bean
-    public RedisCacheTransfer redisCacheTransfer(RedisTemplate<String,Object> redisTemplate) {
-    	RedisCacheTransfer redisCacheTransfer=new RedisCacheTransfer();
-    	redisCacheTransfer.setExpire(expire);
-    	redisCacheTransfer.setRedisTemplate(redisTemplate);
-        return redisCacheTransfer;
+    private void redisCacheTransfer(RedisTemplate<String,Object> redisTemplate) {
+    	RedisCache.setExpire(expire);
+    	RedisCache.setRedisTemplate(redisTemplate);
     }
     
 
