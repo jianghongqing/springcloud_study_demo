@@ -20,5 +20,7 @@ public interface RoleResourcesMapper {
 	void deleteByT(RoleResources[] roleResources);
 
 	List<RoleResources> findTByT(RoleResources roleResources);
-		
+
+	List<Resources> findResourcesByT(Resources resources);
+
 }
