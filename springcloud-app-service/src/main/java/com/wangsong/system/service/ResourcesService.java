@@ -1,5 +1,6 @@
 package com.wangsong.system.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.wangsong.common.model.JsonTreeData;
@@ -21,5 +22,7 @@ public interface ResourcesService {
 	Resources selectByPrimaryKey(String id);
 
 	List<JsonTreeData> findResourcesEMUByResources(String id);
+
+	List<Resources> selectByResources(Resources resources);
 	
 }
