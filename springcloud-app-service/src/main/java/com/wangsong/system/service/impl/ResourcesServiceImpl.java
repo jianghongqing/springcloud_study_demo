@@ -113,11 +113,6 @@ public class ResourcesServiceImpl  implements ResourcesService {
 		return resourcesMapper.selectByPrimaryKey(id);
 	}
 
-	@Override
-	public List<Resources> selectByResources(Resources resources) {
-		return resourcesMapper.selectByResources(resources);
-	}
-
 	
 	
 }
