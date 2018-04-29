@@ -48,12 +48,6 @@
 - 7.启动服务中心springcloud-app-service位置com.wangsong.springcloudAppServiceApplication
 - 8.访问nginx端口/springcloud-app-html
 
-## 预览
-
-![](http://git.oschina.net/uploads/images/2016/1116/164543_5571d631_420150.png "登录")
-![](http://git.oschina.net/uploads/images/2016/1116/164618_99cd6105_420150.png "角色权限树")
-![](http://git.oschina.net/uploads/images/2016/1116/164633_6dd5c2e9_420150.png "权限右键操作树")
-
 ## qq交流群
 
 - 74745979
