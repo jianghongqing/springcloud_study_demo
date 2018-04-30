@@ -1,13 +1,12 @@
-	
-	location /springcloud-app-html {
-		root   D:/app/workspace/springcloud-app;
-		index login.html;
-	}
-	
-	location /springcloud-app/springcloud-app/system/dict{  	
-		proxy_pass http://127.0.0.1:1101/springcloud-app-test/springcloud-app-test/system/dict;
-	} 
-	
-	location /springcloud-app/ {
-		proxy_pass http://127.0.0.1:1101;
-	}
+location /springcloud-app-html {
+			root   D:/app/workspace/springcloud-app;
+			index login.html;
+		}
+		
+		location /springcloud-app/springcloud-app/schedule/ {
+			proxy_pass http://127.0.0.1:1101/springcloud-app-schedule/springcloud-app-schedule/schedule/;
+		}
+		
+		location /springcloud-app/ {
+			proxy_pass http://127.0.0.1:1101;
+		}
