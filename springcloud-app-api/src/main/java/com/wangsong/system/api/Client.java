@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.wangsong.system.model.Resources;
 import com.wangsong.system.model.User;
 
-@FeignClient("springcloud-app")
+@FeignClient("springcloud-app-service")
 public interface Client {
 
 
-    @RequestMapping(value = "/springcloud-app/api/getUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/springcloud-app-service/api/getUser", method = RequestMethod.POST)
     User getUser(@RequestBody  User u);
 
-    @RequestMapping(value = "/springcloud-app/api/getResources", method = RequestMethod.POST)
+    @RequestMapping(value = "/springcloud-app-service/api/getResources", method = RequestMethod.POST)
     List<Resources> getResources(@RequestBody  Resources r);
 }

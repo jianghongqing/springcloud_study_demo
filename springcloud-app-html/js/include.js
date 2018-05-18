@@ -1,5 +1,5 @@
 
-var url = "/springcloud-app/springcloud-app";
+var url = "/springcloud-app-service/springcloud-app-service";
 var htmlURL = "/springcloud-app-html";
 
 document.write("<script type='text/javascript' src='"+htmlURL+"/js/jquery-easyui-1.5/jquery.min.js'></script>");
