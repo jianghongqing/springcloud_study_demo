@@ -9,11 +9,11 @@
 	<url>http://maven.apache.org</url>
 	<modules>
 		<module>springcloud-app-common</module>
-		<module>springcloud-app-service</module>
+		<module>springcloud-app-system</module>
 		<module>springcloud-app-eureka</module>
 		<module>springcloud-app-config</module>
 		<module>springcloud-app-zuul</module>
-		<module>springcloud-app-api</module>
+		<module>springcloud-app-system-api</module>
 		<module>springcloud-app-schedule</module>
 		
 	</modules>

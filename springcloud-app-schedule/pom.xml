@@ -29,7 +29,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.wangsong</groupId>
-			<artifactId>springcloud-app-api</artifactId>
+			<artifactId>springcloud-app-system-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 			<dependency>
