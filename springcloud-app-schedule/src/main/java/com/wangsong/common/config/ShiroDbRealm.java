@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.wangsong.system.api.SystemClient;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -15,14 +16,13 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.wangsong.system.api.Client;
 import com.wangsong.system.model.Resources;
 import com.wangsong.system.model.User;
 
 public class ShiroDbRealm extends AuthorizingRealm {
 	
 	@Autowired
-    private Client client;
+    private SystemClient client;
 	
 
 	@Override

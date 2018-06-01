@@ -11,7 +11,7 @@ import com.wangsong.system.model.Resources;
 import com.wangsong.system.model.User;
 
 @FeignClient("springcloud-app-system")
-public interface Client {
+public interface SystemClient {
 
 
     @RequestMapping(value = "/springcloud-app-system/api/getUser", method = RequestMethod.POST)
