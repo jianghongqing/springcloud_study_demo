@@ -20,7 +20,12 @@
 
 ## 技术栈
 
-- springCloud，服务治理，配置中心，注册中心，路由中心
+- springCloud-eureka 注册中心
+- springCloud-zuul 路由中心
+- springCloud-ribbon 通信
+- springCloud-feign 注解通信
+- springCloud-config 配置中心
+- springCloud-bus 实时配置中心功能
 - springBoot ioc，aop
 - mybatis ORM  
 - shiro 会话 
@@ -35,11 +40,12 @@
 - 1.导入数据库脚本springcloud.sql
 - 2.安装nginx配置参考nginx.txt
 - 3.启动redis
-- 4.启动注册中心springcloud-app-eureka位置com.wangsong.springcloudAppEurekaApplication
-- 5.启动配置中心springcloud-app-config位置com.wangsong.springcloudAppConfigApplication
-- 6.启动路由中心springcloud-app-zuul位置com.wangsong.springcloudAppZuulApplication
-- 7.启动服务中心springcloud-app-service位置com.wangsong.springcloudAppServiceApplication
-- 8.访问nginx端口/springcloud-app-html
+- 4.启动rabbitmq
+- 5.启动注册中心springcloud-app-eureka位置com.wangsong.springcloudAppEurekaApplication
+- 6.启动配置中心springcloud-app-config位置com.wangsong.springcloudAppConfigApplication
+- 7.启动路由中心springcloud-app-zuul位置com.wangsong.springcloudAppZuulApplication
+- 8.启动服务中心springcloud-app-service位置com.wangsong.springcloudAppServiceApplication
+- 9.访问nginx端口/springcloud-app-html
 
 ## qq交流群
 
