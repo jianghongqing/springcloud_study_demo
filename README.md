@@ -2,7 +2,7 @@
 
 ## 系统介绍
 
-- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springCloud、MyBatis、Shiro、redis、quartz、hibernate-validation、easyui，业务模块包括：用户管理，角色管理、权限管理，字典管理，定时任务。
+- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springCloud-eureka，springCloud-zuul，springCloud-ribbon，springCloud-feign，springCloud-config，springCloud-bus、MyBatis、Shiro、redis、quartz、hibernate-validation、easyui，业务模块包括：用户管理，角色管理、权限管理，字典管理，定时任务。
 
 ## 核心流程概要
 
