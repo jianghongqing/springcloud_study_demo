@@ -2,6 +2,8 @@ package com.wangsong.system.controller;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -14,10 +16,14 @@ import com.wangsong.system.groups.DictUpdate;
 import com.wangsong.system.model.Dict;
 import com.wangsong.system.model.DictPage;
 import com.wangsong.system.service.DictService;
-
+@RefreshScope//test
 @Controller
 @RequestMapping("/system/dict")
 public class DictController extends BaseController{
+
+	@Value(value = "${shiro_redis_cache}")
+	private int shiro_redis_cache;//test
+
 	@Autowired
 	private DictService dictService;
 	
