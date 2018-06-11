@@ -1,5 +1,6 @@
 package com.wangsong.system.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -65,5 +66,16 @@ public class DictController extends BaseController{
 	public Object selectByPrimaryKey(String id) {
 		return dictService.selectByPrimaryKey(id);
 	}
-	
+
+
+	@HystrixCommand(fallbackMethod = "test2")
+	@RequestMapping(value="/test")
+	@ResponseBody
+	public Object test() {
+		return 1;
+	}
+
+	public Object test2() {
+		return 2;
+	}
 }
