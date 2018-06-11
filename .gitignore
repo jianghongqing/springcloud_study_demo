@@ -17,3 +17,5 @@ springcloud-app-system/springcloud-app-service.iml
 springcloud-app-system/springcloud-app-system.iml
 springcloud-app-zuul/springcloud-app-zuul.iml
 !/.gitignore
+/springcloud-app-system/logs/spring-app.log
+/.idea/vcs.xml
