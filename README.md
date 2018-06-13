@@ -50,9 +50,9 @@
 - 8.启动服务中心springcloud-app-system
 - 8.启动调度中心springcloud-app-schedule
 - 8.启动断路器监控汇总springcloud-app-turbine 访问端口8989
-- 8.启动断路器监控springcloud-app-hystrix 访问端口1301
+- 8.启动断路器监控springcloud-app-hystrix 访问端口1301/hystrix
 - 8.启动链路追踪springcloud-app-zipkin 访问端口9411
-- 9.访问nginx端口/springcloud-app-html
+- 9.启动nginx 访问端口80/springcloud-app-html
 
 ## qq交流群
 
