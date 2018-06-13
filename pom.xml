@@ -16,6 +16,6 @@
 		<module>springcloud-app-system-api</module>
 		<module>springcloud-app-schedule</module>
 		<module>springcloud-app-hystrix</module>
-
+        <module>springcloud-app-turbine</module>
 	</modules>
 </project>
