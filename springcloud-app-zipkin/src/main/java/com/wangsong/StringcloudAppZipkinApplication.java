@@ -6,8 +6,8 @@ import zipkin.server.EnableZipkinServer;
 
 @EnableZipkinServer
 @SpringBootApplication
-public class StringcloudZipkinApplication {
+public class StringcloudAppZipkinApplication {
     public static void main(String[] args) {
-        SpringApplication.run(StringcloudZipkinApplication.class, args);
+        SpringApplication.run(StringcloudAppZipkinApplication.class, args);
     }
 }
