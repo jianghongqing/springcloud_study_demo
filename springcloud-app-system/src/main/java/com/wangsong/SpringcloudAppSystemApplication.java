@@ -17,11 +17,11 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 @SpringBootApplication
 @MapperScan("com.wangsong.*.dao")
-public class SpringcloudAppServiceApplication {
+public class SpringcloudAppSystemApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(SpringcloudAppServiceApplication.class, args);
+		SpringApplication.run(SpringcloudAppSystemApplication.class, args);
 
 	}
 

@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 @EnableTurbine
 @EnableDiscoveryClient
-public class TurbineApplication {
+public class StringcloudAppTurbineApplication {
     public static void main(String[] args) {
-        SpringApplication.run(TurbineApplication.class, args);
+        SpringApplication.run(StringcloudAppTurbineApplication.class, args);
     }
 }
