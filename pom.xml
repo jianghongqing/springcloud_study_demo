@@ -17,5 +17,7 @@
 		<module>springcloud-app-schedule</module>
 		<module>springcloud-app-hystrix</module>
         <module>springcloud-app-turbine</module>
+		<module>springcloud-app-zipkin</module>
+
 	</modules>
 </project>
