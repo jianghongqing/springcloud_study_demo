@@ -2,7 +2,7 @@
 
 ## 系统介绍
 
-- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springCloud-eureka，springCloud-zuul，springCloud-ribbon，springCloud-feign，springCloud-config，springCloud-bus、MyBatis、Shiro、redis、quartz、hibernate-validation、easyui，业务模块包括：用户管理，角色管理、权限管理，字典管理，定时任务。
+- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springcloud-eureka，springcloud-zuul，springcloud-ribbon，springcloud-feign，springcloud-config，springcloud-bus、springcloud-hystrix，springcloud-turbine，springcloud-zipkin，MyBatis、Shiro、redis、quartz、hibernate-validation、easyui，业务模块包括：用户管理，角色管理、权限管理，字典管理，定时任务。
 
 ## 核心流程概要
 
@@ -20,12 +20,15 @@
 
 ## 技术栈
 
-- springCloud-eureka 注册中心
-- springCloud-zuul 路由中心
-- springCloud-ribbon 通信
-- springCloud-feign 注解通信
-- springCloud-config 配置中心
-- springCloud-bus 实时配置中心功能
+- springcloud-eureka 注册中心
+- springcloud-zuul 路由中心
+- springcloud-ribbon 通信
+- springcloud-feign 注解通信
+- springcloud-config 配置中心
+- springcloud-bus 实时配置中心功能
+- springcloud-hystrix 断路器监控
+- springcloud-turbine 断路器监控聚合
+- springcloud-zipkin 链路监控
 - springBoot ioc，aop
 - mybatis ORM  
 - shiro 会话 
@@ -41,10 +44,14 @@
 - 2.安装nginx配置参考nginx.txt
 - 3.启动redis
 - 4.启动rabbitmq
-- 5.启动注册中心springcloud-app-eureka位置com.wangsong.springcloudAppEurekaApplication
-- 6.启动配置中心springcloud-app-config位置com.wangsong.springcloudAppConfigApplication
-- 7.启动路由中心springcloud-app-zuul位置com.wangsong.springcloudAppZuulApplication
-- 8.启动服务中心springcloud-app-service位置com.wangsong.springcloudAppServiceApplication
+- 5.启动注册中心springcloud-app-eureka 访问端口1001
+- 6.启动配置中心springcloud-app-config
+- 7.启动路由中心springcloud-app-zuul
+- 8.启动服务中心springcloud-app-system
+- 8.启动调度中心springcloud-app-schedule
+- 8.启动断路器监控汇总springcloud-app-turbine 访问端口8989
+- 8.启动断路器监控springcloud-app-hystrix 访问端口1301
+- 8.启动链路追踪springcloud-app-zipkin 访问端口9411
 - 9.访问nginx端口/springcloud-app-html
 
 ## qq交流群
