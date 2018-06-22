@@ -1,8 +1,7 @@
 package com.wangsong.common.config;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
+import com.wangsong.common.shiro.RedisCacheManager;
+import com.wangsong.common.shiro.RedisSessionDAO;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -17,8 +16,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
 
-import com.wangsong.common.shiro.RedisCacheManager;
-import com.wangsong.common.shiro.RedisSessionDAO;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 @Configuration
