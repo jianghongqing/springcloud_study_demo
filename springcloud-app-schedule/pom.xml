@@ -32,12 +32,12 @@
 			<artifactId>springcloud-app-system-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-			<dependency>
-		    <groupId>org.quartz-scheduler</groupId>
-		    <artifactId>quartz</artifactId>
-		    <version>2.2.3</version>
+		<!-- xxl-job-core -->
+		<dependency>
+			<groupId>com.xuxueli</groupId>
+			<artifactId>xxl-job-core</artifactId>
+			<version>1.9.2-SNAPSHOT</version>
 		</dependency>
-
 	</dependencies>
 	<build>
 		<plugins>
