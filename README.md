@@ -2,7 +2,7 @@
 
 ## 系统介绍
 
-- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springcloud-eureka，springcloud-zuul，springcloud-ribbon，springcloud-feign，springcloud-config，springcloud-bus、springcloud-hystrix，springcloud-turbine，springcloud-zipkin，MyBatis、Shiro、redis、quartz、hibernate-validation、easyui，业务模块包括：用户管理，角色管理、权限管理，字典管理，定时任务。
+- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springcloud-eureka，springcloud-zuul，springcloud-ribbon，springcloud-feign，springcloud-config，springcloud-bus、springcloud-hystrix，springcloud-turbine，springcloud-zipkin，MyBatis、Shiro、redis、quartz、hibernate-validation、xxljob，业务模块包括：用户管理，角色管理、权限管理，字典管理，定时任务。
 
 ## 核心流程概要
 
@@ -35,7 +35,7 @@
 - hibernate-validation 验证 
 - redis 集群会话，shiro缓存，mybatis二级缓存
 - 连接池 druid
-- quartz 定时任务
+- xxljob 定时任务
 - easyui 页面UI 
 
 ## 部署
@@ -52,7 +52,8 @@
 - 10.启动断路器监控汇总springcloud-app-turbine 访问端口8989
 - 11.启动断路器监控springcloud-app-hystrix 访问端口1301/hystrix
 - 12.启动链路追踪springcloud-app-zipkin 访问端口9411
-- 13.启动nginx 访问端口80/springcloud-app-html
+- 13.启动定时任务xxljob 访问端口9034
+- 14.启动nginx 访问端口80/springcloud-app-html
 
 ## qq交流群
 
