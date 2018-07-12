@@ -2,8 +2,7 @@
 
 ## 系统介绍
 
-- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springcloud-eureka，springcloud-zuul，springcloud-ribbon，springcloud-feign，springcloud-config，springcloud-bus、springcloud-hystrix，springcloud-turbine，springcloud-zipkin，MyBatis、Shiro、redis、quartz、hibernate-validation、xxljob，业务模块包括：用户管理，角色管理、权限管理，字典管理，定时任务。
-
+- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springcloud-eureka，springcloud-zuul，springcloud-ribbon，springcloud-feign，springcloud-config，springcloud-bus、springcloud-hystrix，springcloud-turbine，springcloud-zipkin，MyBatis、Shiro、redis、quartz、hibernate-validation，业务模块包括：用户管理，角色管理、权限管理，字典管理。
 ## 核心流程概要
 
 - 用户->nginx->HTML->ZUUL(路由中心)->eureka(注册中心)->具体服务（必须引入SHIRO权限）->eureka(注册中心)->核心服务（SHIRO权限认证授权）->REDIS/MYSQL
@@ -16,7 +15,6 @@
 - 2.角色管理：角色增删改查与权限关系
 - 3.菜单管理：菜单增删改查（树形结构）
 - 4.字典管理：字典增删改查
-- 5.定时器管理：定时器添加删除暂停，更改表达式
 
 ## 技术栈
 
@@ -35,8 +33,7 @@
 - hibernate-validation 验证 
 - redis 集群会话，shiro缓存，mybatis二级缓存
 - 连接池 druid
-- xxljob 定时任务
-- easyui 页面UI 
+- easyui 页面UI
 
 ## 部署
 
@@ -52,8 +49,7 @@
 - 10.启动断路器监控汇总springcloud-app-turbine 访问端口8989
 - 11.启动断路器监控springcloud-app-hystrix 访问端口1301/hystrix
 - 12.启动链路追踪springcloud-app-zipkin 访问端口9411
-- 13.启动定时任务xxljob 访问端口9034
-- 14.启动nginx 访问端口80/springcloud-app-html
+- 13.启动nginx 访问端口80/springcloud-app-html
 
 ## qq交流群
 
