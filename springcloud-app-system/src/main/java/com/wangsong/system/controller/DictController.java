@@ -1,108 +1,69 @@
 package com.wangsong.system.controller;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.wangsong.common.controller.BaseController;
-import com.wangsong.system.groups.DictAdd;
-import com.wangsong.system.groups.DictUpdate;
+import com.wangsong.common.model.CodeEnum;
+import com.wangsong.common.model.GetEasyUIData;
+import com.wangsong.common.model.Result;
 import com.wangsong.system.model.Dict;
 import com.wangsong.system.model.DictPage;
 import com.wangsong.system.service.DictService;
-@RefreshScope//test
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+
 @Controller
 @RequestMapping("/system/dict")
-public class DictController extends BaseController{
+public class DictController extends BaseController {
+    @Autowired
+    private DictService dictService;
 
-	@Value(value = "${shiro_redis_cache}")
-	private int shiro_redis_cache;//test
+    @RequiresPermissions("/system/dict/list")
+    @RequestMapping(value = "/list")
+    @ResponseBody
+    public GetEasyUIData list(DictPage dict) {
+        return dictService.findTByPage(dict);
+    }
 
-	@Autowired
-	private DictService dictService;
-	
-	@RequiresPermissions("/system/dict/list")
-	@RequestMapping(value="/list")
-	@ResponseBody
-	public Object list(DictPage dict) {
-		return dictService.findTByPage(dict);
-	}
-	@RequiresPermissions("/system/dict/add")
-	@RequestMapping(value="/add")
-	@ResponseBody
-	public Object add(@Validated({DictAdd.class}) Dict dict,BindingResult bindingResult) {
-		return dictService.insertDict(dict);
-	}
-	
-	@RequiresPermissions("/system/dict/update")
-	@RequestMapping(value="/update")
-	@ResponseBody
-	public Object update(@Validated({DictUpdate.class}) Dict dict,BindingResult bindingResult) {
-		return dictService.updateByPrimaryKeyDict(dict);
-	}
-	
-	@RequiresPermissions("/system/dict/delete")
-	@RequestMapping(value="/delete")
-	@ResponseBody
-	public Object delete(String[] id) {
-		return dictService.deleteByPrimaryKeyDict(id);
-	}
-	
-	@RequestMapping(value="/findDictByDict")
-	@ResponseBody
-	public Object findDictByDict(Dict dict) {
-		return dictService.findTByT(dict);
-	}
-	
-	@RequestMapping(value="/selectByPrimaryKey")
-	@ResponseBody
-	public Object selectByPrimaryKey(String id) {
-		return dictService.selectByPrimaryKey(id);
-	}
+    @RequiresPermissions("/system/dict/add")
+    @RequestMapping(value = "/add")
+    @ResponseBody
+    public Result add(Dict dict) {
+        dictService.insertDict(dict);
+        return new Result(CodeEnum.SUCCESS.getCode(), null);
+    }
 
+    @RequiresPermissions("/system/dict/update")
+    @RequestMapping(value = "/update")
+    @ResponseBody
+    public Result update(Dict dict) {
+        dictService.updateByPrimaryKeyDict(dict);
+        return new Result(CodeEnum.SUCCESS.getCode(), null);
 
-	@HystrixCommand(fallbackMethod = "test2")
-	@RequestMapping(value="/test")
-	@ResponseBody
-	public Object test() {
-		return 1;
-	}
+    }
 
-	public Object test2() {
-		return 2;
-	}
+    @RequiresPermissions("/system/dict/delete")
+    @RequestMapping(value = "/delete")
+    @ResponseBody
+    public Result delete(String[] id) {
+        dictService.deleteByPrimaryKeyDict(id);
+        return new Result(CodeEnum.SUCCESS.getCode(), null);
 
-	@RequestMapping(value="/test3list")
-	@ResponseBody
-	@Cacheable(value = "test3", key = "#id")
-	public Object test3list(String id) {
-		System.out.println(id);
-		return id;
-	}
+    }
 
-	@RequestMapping(value="/test3del")
-	@ResponseBody
-	@CacheEvict(value = "test3", key = "#id")
-	public Object test3del(String id) {
-		System.out.println(id);
-		return id;
-	}
+    @RequestMapping(value = "/findDictByDict")
+    @ResponseBody
+    public List<Dict> findDictByDict(Dict dict) {
+        return dictService.findTByT(dict);
+    }
 
-	@RequestMapping(value="/test3add")
-	@ResponseBody
-	@CachePut(value = "test3", key = "#id")
-	public Object test3add(String id) {
-		System.out.println(id);
-		return id;
-	}
+    @RequestMapping(value = "/selectByPrimaryKey")
+    @ResponseBody
+    public Dict selectByPrimaryKey(String id) {
+        return dictService.selectByPrimaryKey(id);
+    }
+
 }
