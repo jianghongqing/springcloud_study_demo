@@ -2,7 +2,7 @@
 
 ## 系统介绍
 
-- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springcloud-eureka，springcloud-zuul，springcloud-ribbon，springcloud-feign，springcloud-config，springcloud-bus、springcloud-hystrix，springcloud-turbine，springcloud-zipkin，MyBatis、Shiro、redis、quartz、hibernate-validation，业务模块包括：用户管理，角色管理、权限管理，字典管理。
+- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springcloud，eureka，zuul，ribbon，feign，config，springcloud-bus、hystrix，turbine，zipkin，MyBatis、Shiro、redis、quartz，业务模块包括：用户管理，角色管理、权限管理，字典管理。
 ## 核心流程概要
 
 - 用户->nginx->HTML->ZUUL(路由中心)->eureka(注册中心)->具体服务（必须引入SHIRO权限）->eureka(注册中心)->核心服务（SHIRO权限认证授权）->REDIS/MYSQL
@@ -18,19 +18,19 @@
 
 ## 技术栈
 
-- springcloud-eureka 注册中心
-- springcloud-zuul 路由中心
-- springcloud-ribbon 通信
-- springcloud-feign 注解通信
-- springcloud-config 配置中心
-- springcloud-bus 实时配置中心功能
-- springcloud-hystrix 断路器监控
-- springcloud-turbine 断路器监控聚合
-- springcloud-zipkin 链路监控
+- springcloud 整合
+- eureka 注册中心
+- zuul 路由中心
+- ribbon 通信
+- feign 注解通信
+- config 配置中心
+- bus 实时配置中心功能
+- hystrix 断路器监控
+- turbine 断路器监控聚合
+- zipkin 链路监控
 - springBoot ioc，aop
 - mybatis ORM  
-- shiro 会话 
-- hibernate-validation 验证 
+- shiro 会话
 - redis 集群会话，shiro缓存，mybatis二级缓存
 - 连接池 druid
 - easyui 页面UI
