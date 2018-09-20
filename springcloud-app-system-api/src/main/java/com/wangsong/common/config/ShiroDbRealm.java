@@ -1,6 +1,6 @@
 package com.wangsong.common.config;
 
-import com.wangsong.system.api.SystemClient;
+import com.wangsong.system.api.SystemAPI;
 import com.wangsong.system.model.Resources;
 import com.wangsong.system.model.User;
 import org.apache.shiro.authc.*;
@@ -17,13 +17,13 @@ import java.util.Set;
 public class ShiroDbRealm extends AuthorizingRealm {
 	
 	@Autowired
-    private SystemClient client;
+    private SystemAPI client;
 	
 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-		User user = client.getUser(new User(null,token.getUsername(),null));
+		User user = client.getUser(new User(null,token.getUsername(),null)).getData();
 		// 认证缓存信息
 		return new SimpleAuthenticationInfo(user.getId(), user.getPassword().toCharArray(), getName());
 	}
@@ -36,7 +36,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		String shiroUser =(String) principals.getPrimaryPrincipal();
-		List<Resources> roleList = client.getResources(new Resources(shiroUser,null,null,null,"2",null));
+		List<Resources> roleList = client.getResources(new Resources(shiroUser,null,null,null,"2",null)).getData();
 		Set<String> urlSet = new HashSet<String>();
 		for (Resources roleId : roleList) {
 			urlSet.add(roleId.getUrl());
