@@ -1,4 +1,4 @@
-package com.wangsong.system.controller;
+package com.wangsong.system.api.impl;
 
 import com.wangsong.common.model.CodeEnum;
 import com.wangsong.common.model.Result;
