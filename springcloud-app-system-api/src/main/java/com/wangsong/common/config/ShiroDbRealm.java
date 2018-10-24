@@ -12,6 +12,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -33,7 +34,11 @@ public class ShiroDbRealm extends AuthorizingRealm {
 		String username = JWTUtil.getUsername(token);
 		User user = client.getUser(new User(null,username,null)).getData();
 		// 认证缓存信息
-		if (!JWTUtil.verify(token, username, user.getPassword())) {
+		try {
+			if (!JWTUtil.verify(token, username, user.getPassword())) {
+				throw new AuthenticationException("密码不对");
+			}
+		} catch (UnsupportedEncodingException e) {
 			throw new AuthenticationException("密码不对");
 		}
 		// 认证缓存信息

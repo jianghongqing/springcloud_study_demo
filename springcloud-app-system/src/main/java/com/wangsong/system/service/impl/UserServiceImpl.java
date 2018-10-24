@@ -12,7 +12,6 @@ import com.wangsong.system.model.UserRole;
 import com.wangsong.system.service.UserService;
 import com.wangsong.system.vo.UserVO;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -78,8 +77,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User selectByPrimaryKey() {
-        User u = userMapper.selectByPrimaryKey((String) SecurityUtils.getSubject().getPrincipal());
+    public User selectByPrimaryKey(String id) {
+        User u = userMapper.selectByPrimaryKey(id);
         u.setPassword("");
         return u;
     }
@@ -102,7 +101,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserVO selectByPrimaryKey(String id) {
+    public UserVO selectVOByPrimaryKey(String id) {
         UserVO u = userMapper.selectVOByPrimaryKey(id);
         u.setPassword("");
         u.setUserRoleList(userRoleMapper.findTByT(new UserRole(null, id, null)));
