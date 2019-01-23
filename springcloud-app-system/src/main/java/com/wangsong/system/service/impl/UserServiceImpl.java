@@ -5,17 +5,20 @@ import com.github.pagehelper.PageHelper;
 import com.wangsong.common.model.GetEasyUIData;
 import com.wangsong.system.dao.UserMapper;
 import com.wangsong.system.dao.UserRoleMapper;
-import com.wangsong.system.model.User;
-import com.wangsong.system.model.UserAddModel;
-import com.wangsong.system.model.UserPage;
-import com.wangsong.system.model.UserRole;
+import com.wangsong.system.model.*;
+import com.wangsong.system.service.ResourcesService;
 import com.wangsong.system.service.UserService;
 import com.wangsong.system.vo.UserVO;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -25,6 +28,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRoleMapper userRoleMapper;
+
+    @Autowired
+    private ResourcesService resourcesService;
 
     @Override
     @Transactional
@@ -119,4 +125,24 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = findTByT(new User(null, username, null));
+        UserDO userDO=new UserDO();
+        BeanUtils.copyProperties(user,userDO);
+        if (user == null) {
+            throw new UsernameNotFoundException("Could not find the user '" + username + "'");
+        }
+        List<Resources> roleList = resourcesService.findTByT(new Resources(user.getId(), null, null, null, "2", null));
+        List<ResourcesDO> resourcesDOList=new ArrayList<ResourcesDO>();
+        for(int i=0;i<roleList.size();i++){
+            ResourcesDO resourcesDO=new ResourcesDO();
+            BeanUtils.copyProperties(roleList.get(i),resourcesDO);
+            resourcesDOList.add(resourcesDO);
+        }
+
+
+        // Not involve authorities, so pass null to authorities
+        return   new CustomUserDetails(userDO, true, true, true, true, resourcesDOList);
+    }
 }

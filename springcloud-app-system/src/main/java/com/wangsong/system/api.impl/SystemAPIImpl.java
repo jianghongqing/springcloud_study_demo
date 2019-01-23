@@ -5,6 +5,7 @@ import com.wangsong.common.model.CodeEnum;
 import com.wangsong.common.model.Result;
 import com.wangsong.system.model.Resources;
 import com.wangsong.system.model.User;
+import com.wangsong.system.model.UserDO;
 import com.wangsong.system.service.ResourcesService;
 import com.wangsong.system.service.UserService;
 import io.swagger.annotations.Api;
@@ -34,16 +35,10 @@ public class SystemAPIImpl extends BaseController {
     @ApiOperation(value = "获取用户", httpMethod = "POST")
     @RequestMapping(value = "/getUser", method = RequestMethod.POST)
     @ResponseBody
-    public Result<User> getUser(@RequestBody User u) {
-        return new Result(CodeEnum.SUCCESS.getCode(), userService.findTByT(u));
+    public Result<UserDO> getUser(@RequestBody UserDO u) {
+        return new Result(CodeEnum.SUCCESS.getCode(), u);
     }
 
-    @ApiOperation(value = "获取权限", httpMethod = "POST")
-    @RequestMapping(value = "/getResources", method = RequestMethod.POST)
-    @ResponseBody
-    public Result<List<Resources>> getResources(@RequestBody Resources r) {
-        return new Result(CodeEnum.SUCCESS.getCode(), resourcesService.findTByT(r));
-    }
 
 
 }

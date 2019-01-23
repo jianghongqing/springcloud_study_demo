@@ -2,12 +2,12 @@
 
 ## 系统介绍
 
-- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springcloud，eureka，zuul，ribbon，feign，config，bus、hystrix，turbine，zipkin，MyBatis、Shiro、redis，JWT，swagger，lombok，业务模块包括：用户管理，角色管理、权限管理，字典管理。
+- springcloud-app 是J2EE集群分布式基础开发平台，技术栈包括：springcloud，eureka，zuul，ribbon，feign，config，bus、hystrix，turbine，zipkin，MyBatis、springsecurity-oauth、redis，swagger，lombok，业务模块包括：用户管理，角色管理、权限管理，字典管理。
 ## 核心流程概要
 
-- 用户->nginx->HTML->ZUUL(路由中心)->eureka(注册中心)->具体服务（必须引入SHIRO权限）->eureka(注册中心)->核心服务（SHIRO权限认证授权）->REDIS/MYSQL
+- 用户->nginx->HTML->ZUUL(路由中心)->eureka(注册中心)->认证服务->资源服务->->REDIS/MYSQL
 - 外部通信,方式HTTP,协议HTTP,权限SHIRO,注意ZUUL过滤器屏蔽内部接口（防止内部接口对外暴露）
-- 内部通信,方式Feign,协议HTTP,权限eureka账号密码,注意SHIRO要开放内部接口
+- 内部通信,方式Feign,协议HTTP,权限eureka账号密码,注意springsecurity要开放内部接口
 
 ## 业务功能
 
@@ -30,10 +30,9 @@
 - zipkin 链路监控
 - springBoot ioc，aop
 - mybatis ORM  
-- shiro 会话
-- redis shiro缓存
+- springsecurity-oauth 会话
+- redis 缓存
 - 连接池 druid
-- JWT 会话
 - swagger api
 - lombok 代码优化
 
