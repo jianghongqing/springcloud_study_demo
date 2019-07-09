@@ -1,10 +1,8 @@
-package com.wangsong.system.api.impl;
+package com.wangsong.system.api;
 
 import com.wangsong.common.controller.BaseController;
 import com.wangsong.common.model.CodeEnum;
 import com.wangsong.common.model.Result;
-import com.wangsong.system.model.Resources;
-import com.wangsong.system.model.User;
 import com.wangsong.system.model.UserDO;
 import com.wangsong.system.service.ResourcesService;
 import com.wangsong.system.service.UserService;
@@ -16,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 
 @Controller
