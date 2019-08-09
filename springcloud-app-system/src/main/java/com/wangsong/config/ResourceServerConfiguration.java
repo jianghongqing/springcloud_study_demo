@@ -11,15 +11,15 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
  */
 @Configuration
 @EnableResourceServer
-@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled =true)//激活方法上的PreAuthorize注解
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)//激活方法上的PreAuthorize注解
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
-            .authorizeRequests()
+                .authorizeRequests()
 
-                .antMatchers( "/html/**","/api/**","/hystrix.stream").permitAll()
+                .antMatchers("/html/**", "/api/**", "/hystrix.stream").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .headers().frameOptions().disable();

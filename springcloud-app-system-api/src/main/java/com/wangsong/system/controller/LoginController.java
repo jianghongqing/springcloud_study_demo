@@ -36,7 +36,6 @@ public class LoginController extends BaseController implements ErrorController {
     }
 
 
-
     @ApiOperation(value = "退出", httpMethod = "POST")
     @RequestMapping(value = "/logoutJSON")
     @ResponseBody
@@ -57,7 +56,6 @@ public class LoginController extends BaseController implements ErrorController {
     public String getErrorPath() {
         return ERROR_PATH;
     }
-
 
 
     @ExceptionHandler(value = IllegalArgumentException.class)

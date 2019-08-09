@@ -18,7 +18,7 @@ import java.util.Set;
  */
 @Getter
 @ToString
-public class CustomUserDetails extends UserDO implements UserDetails , Serializable {
+public class CustomUserDetails extends UserDO implements UserDetails, Serializable {
 
     private static final long serialVersionUID = 1702923242319850756L;
 

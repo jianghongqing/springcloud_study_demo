@@ -128,21 +128,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = findTByT(new User(null, username, null));
-        UserDO userDO=new UserDO();
-        BeanUtils.copyProperties(user,userDO);
+        UserDO userDO = new UserDO();
+        BeanUtils.copyProperties(user, userDO);
         if (user == null) {
             throw new UsernameNotFoundException("Could not find the user '" + username + "'");
         }
         List<Resources> roleList = resourcesService.findTByT(new Resources(user.getId(), null, null, null, "2", null));
-        List<ResourcesDO> resourcesDOList=new ArrayList<ResourcesDO>();
-        for(int i=0;i<roleList.size();i++){
-            ResourcesDO resourcesDO=new ResourcesDO();
-            BeanUtils.copyProperties(roleList.get(i),resourcesDO);
+        List<ResourcesDO> resourcesDOList = new ArrayList<ResourcesDO>();
+        for (int i = 0; i < roleList.size(); i++) {
+            ResourcesDO resourcesDO = new ResourcesDO();
+            BeanUtils.copyProperties(roleList.get(i), resourcesDO);
             resourcesDOList.add(resourcesDO);
         }
 
 
         // Not involve authorities, so pass null to authorities
-        return   new CustomUserDetails(userDO, true, true, true, true, resourcesDOList);
+        return new CustomUserDetails(userDO, true, true, true, true, resourcesDOList);
     }
 }

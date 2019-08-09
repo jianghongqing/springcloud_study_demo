@@ -36,7 +36,6 @@
     </select>
 
 
-
     <select id="findTByPage" parameterType="com.wangsong.system.model.DictPage" resultMap="BaseResultMap">
         select id, code, name, type
         from system_dict

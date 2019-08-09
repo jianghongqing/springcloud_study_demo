@@ -15,11 +15,11 @@ import org.springframework.web.client.RestTemplate;
 @MapperScan("com.wangsong.*.dao")
 public class SpringcloudAppScheduleApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		SpringApplication.run(SpringcloudAppScheduleApplication.class, args);
+        SpringApplication.run(SpringcloudAppScheduleApplication.class, args);
 
-	}
+    }
 
 
 }

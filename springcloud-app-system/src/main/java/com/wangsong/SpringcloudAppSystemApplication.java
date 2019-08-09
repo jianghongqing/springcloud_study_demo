@@ -22,11 +22,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @MapperScan("com.wangsong.*.dao")
 public class SpringcloudAppSystemApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		SpringApplication.run(SpringcloudAppSystemApplication.class, args);
+        SpringApplication.run(SpringcloudAppSystemApplication.class, args);
 
-	}
+    }
 
 
 }

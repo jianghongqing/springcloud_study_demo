@@ -19,7 +19,6 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
 
-
     @Autowired
     private TokenStore tokenStore;
 
@@ -32,9 +31,9 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients
-            .inMemory()
+                .inMemory()
                 .withClient("client")
-                    .scopes("success");
+                .scopes("success");
     }
 
     @Override

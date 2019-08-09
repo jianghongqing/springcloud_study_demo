@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginServiceImpl implements LoginService {
 
 
-
-
-
     @Override
     public void logoutJSON() {
 

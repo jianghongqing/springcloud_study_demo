@@ -11,8 +11,6 @@
     </insert>
 
 
-
-
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
         delete from system_role
         where id = #{id,jdbcType=VARCHAR}
@@ -25,8 +23,6 @@
     </update>
 
 
-
-
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select id, name
         from system_role
@@ -36,7 +32,6 @@
         select id, name
         from system_role
     </select>
-
 
 
     <select id="findTByPage" parameterType="com.wangsong.system.model.RolePage" resultMap="BaseResultMap">

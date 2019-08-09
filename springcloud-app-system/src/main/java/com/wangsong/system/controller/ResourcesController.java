@@ -74,7 +74,7 @@ public class ResourcesController extends BaseController {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
                 .getAuthentication()
                 .getPrincipal();
-        String id= ((UserDO)userDetails).getId();
+        String id = ((UserDO) userDetails).getId();
         return new Result(CodeEnum.SUCCESS.getCode(), resourcesService.findResourcesEMUByResources(id));
     }
 

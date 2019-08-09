@@ -34,7 +34,7 @@ public class UserController extends BaseController {
     @RequestMapping(value = "/list")
     @ResponseBody
     public Result list(@ModelAttribute UserPage user) {
-        return  new Result(CodeEnum.SUCCESS.getCode(),userService.findTByPage(user));
+        return new Result(CodeEnum.SUCCESS.getCode(), userService.findTByPage(user));
     }
 
     @ApiOperation(value = "增加", httpMethod = "POST")
@@ -54,7 +54,7 @@ public class UserController extends BaseController {
     @RequestMapping(value = "/selectByPrimaryKey")
     @ResponseBody
     public Result selectByPrimaryKey(String id) {
-        return new Result(CodeEnum.SUCCESS.getCode(),userService.selectVOByPrimaryKey(id));
+        return new Result(CodeEnum.SUCCESS.getCode(), userService.selectVOByPrimaryKey(id));
     }
 
     @ApiOperation(value = "更新", httpMethod = "POST")
@@ -62,7 +62,7 @@ public class UserController extends BaseController {
     @RequestMapping(value = "/update")
     @ResponseBody
     public Result update(@ModelAttribute UserAddModel muser) {
-        Assert.notNull(muser.getId(),CodeEnum.NO_NULL.getCode());
+        Assert.notNull(muser.getId(), CodeEnum.NO_NULL.getCode());
         userService.updateUser(muser);
         return new Result(CodeEnum.SUCCESS.getCode(), null);
 
@@ -98,8 +98,8 @@ public class UserController extends BaseController {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
                 .getAuthentication()
                 .getPrincipal();
-        String id= ((UserDO)userDetails).getId();
-        return new Result(CodeEnum.SUCCESS.getCode(),userService.selectByPrimaryKey(id));
+        String id = ((UserDO) userDetails).getId();
+        return new Result(CodeEnum.SUCCESS.getCode(), userService.selectByPrimaryKey(id));
     }
 
     @ApiOperation(value = "更改密码", httpMethod = "POST")

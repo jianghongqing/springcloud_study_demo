@@ -39,11 +39,10 @@ public class ScheduleJobController {
     @RequestMapping("/add")
     @ResponseBody
     public Object add(String text) {
-        UserDO userDO=new UserDO();
+        UserDO userDO = new UserDO();
         userDO.setUsername(text);
         return client.getUser(userDO);
     }
-
 
 
 }

@@ -25,10 +25,9 @@ public class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdap
 
     @Override
     public void init(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService) .passwordEncoder(new Md5PasswordEncoder());
+        auth.userDetailsService(userService).passwordEncoder(new Md5PasswordEncoder());
         ;
     }
-
 
 
     @Bean
