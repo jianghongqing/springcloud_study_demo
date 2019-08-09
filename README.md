@@ -45,15 +45,10 @@
 - 4.启动rabbitmq
 - 5.启动注册中心springcloud-app-eureka 访问端口1001
 - 6.启动配置中心springcloud-app-config
-- 7.将https://github.com/vmaps3/admin-ui 放入springcloud-app-zuul\src\main\resources\ 更改对应include.js
-- 8.启动路由中心springcloud-app-zuul
-- 9.启动服务中心springcloud-app-system
-- 10.启动调度中心springcloud-app-schedule
-- 11.启动断路器监控汇总springcloud-app-turbine 访问端口8989
-- 12.启动断路器监控springcloud-app-hystrix 访问端口1301/hystrix
-- 13.启动链路追踪springcloud-app-zipkin 访问端口9411
-- 14.启动springcloud-app-zuul访问端口/html/login.html
-
-## qq交流群
-
-- 74745979
+- 7.启动路由中心springcloud-app-zuul
+- 8.启动服务中心springcloud-app-system
+- 9.启动调度中心springcloud-app-schedule
+- 10.启动断路器监控汇总springcloud-app-turbine 访问端口8989
+- 11.启动断路器监控springcloud-app-hystrix 访问端口1301/hystrix
+- 12.启动链路追踪springcloud-app-zipkin 访问端口9411
+- 13.启动springcloud-app-zuul访问端口/html/login.html
